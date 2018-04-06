@@ -84,9 +84,9 @@ public class ProxyServlet extends HttpServlet {
 	    {
 			response.addHeader(WWW_AUTHENTICATE_HEADER,
 					BASIC_AUTHENTICATION_CHALLENGE);
-	    }
-	    else
-	    {	    
+	    } else if (statusCode == HttpServletResponse.SC_NOT_FOUND) {
+	    	response.setStatus(statusCode);
+		} else {
 	    	response.setContentLength(conn.getContentLength());
 	    	response.setCharacterEncoding(conn.getContentEncoding());
 	    	Map<String, List<String>> headers = conn.getHeaderFields();

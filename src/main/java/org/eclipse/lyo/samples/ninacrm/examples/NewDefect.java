@@ -29,6 +29,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFWriter;
 import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
 import com.hp.hpl.jena.vocabulary.RDF;
+import org.eclipse.lyo.samples.ninacrm.DataLoader;
 
 public class NewDefect {
 	private static final String HOSTNAME="localhost";
@@ -38,7 +39,7 @@ public class NewDefect {
 	       "test Java post 1 2 3 4 5 6", "1.0",  "Datastore", "PC", "Windows");    
 	    try {
 	       URL createURL = new URL( // (2)
-	          "http://" + HOSTNAME + ":8080/OSLC4JBugzilla/services/1/changeRequests");         
+									DataLoader.BUGZILLA_BASE + "/services/serviceProviders/1/bugzillaChangeRequests");
 	       HttpURLConnection conn = (HttpURLConnection)createURL.openConnection();
 	       conn.setRequestMethod("POST"); // (3) 
 	       conn.setDoOutput(true);

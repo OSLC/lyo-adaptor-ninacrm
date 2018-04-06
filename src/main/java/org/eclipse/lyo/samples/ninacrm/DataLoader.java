@@ -4,13 +4,13 @@
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  *  The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  *  and the Eclipse Distribution License is available at
  *  http://www.eclipse.org/org/documents/edl-v10.php.
- *  
+ *
  *  Contributors:
- *  
+ *
  *	   Dave Johnson	       - initial API and implementation
  *     Michael Fiedler     - adapted for OSLC4J Workshop
  *******************************************************************************/
@@ -34,29 +34,34 @@ import javax.servlet.ServletResponse;
  * Loads sample data for Nina CRM
  */
 public class DataLoader implements Filter {
-	
-	private static final String HOSTNAME="localhost";
-	
-	ServletContext context = null;
-		
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		request.setAttribute("data", context.getAttribute("data"));
-		chain.doFilter(request, response);
-	}
 
-	public void init(FilterConfig filterConfig) throws ServletException {
-		context = filterConfig.getServletContext();
-		Map<URL, String> data = new HashMap<URL, String>();
-		try {
-			data.put(new URL("http://" + HOSTNAME + ":8080/OSLC4JBugzilla/services/1/changeRequests/1"), "Bug #1");
-			data.put(new URL("http://" + HOSTNAME + ":8080/OSLC4JBugzilla/services/1/changeRequests/2"), "Bug #2");
-			data.put(new URL("http://" + HOSTNAME + ":8080/OSLC4JBugzilla/services/1/changeRequests/8"), "Bug #8");
-		} catch (MalformedURLException ignored) {
-			ignored.printStackTrace();
-		}
-		context.setAttribute("data", data); 
-	}
-	
-	public void destroy() {
-	}
+//    public static final String NINACRM_BASE  = "https://aide.md.kth.se/ninacrm";
+//    public static final String BUGZILLA_BASE = "https://aide.md.kth.se/bugz";
+
+    public static final String NINACRM_BASE  = "http://localhost:8181/ninacrm";
+    public static final String BUGZILLA_BASE = "http://localhost:8080/BugzillaAdaptor";
+
+    ServletContext context = null;
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        request.setAttribute("data", context.getAttribute("data"));
+        chain.doFilter(request, response);
+    }
+
+    public void init(FilterConfig filterConfig) {
+        context = filterConfig.getServletContext();
+        Map<URL, String> data = new HashMap<URL, String>();
+        try {
+            data.put(new URL(BUGZILLA_BASE + "/services/1/changeRequests/1"), "Bug #1");
+            data.put(new URL(BUGZILLA_BASE + "/services/1/changeRequests/2"), "Bug #2");
+            data.put(new URL(BUGZILLA_BASE + "/services/1/changeRequests/8"), "Bug #8");
+        } catch (MalformedURLException ignored) {
+            ignored.printStackTrace();
+        }
+        context.setAttribute("data", data);
+    }
+
+    public void destroy() {
+    }
 }

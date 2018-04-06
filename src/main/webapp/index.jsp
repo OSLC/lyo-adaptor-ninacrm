@@ -16,6 +16,7 @@
 --%>
 <html>
 <%@ page import="java.util.*, java.net.*" %>
+<%@ page import="org.eclipse.lyo.samples.ninacrm.DataLoader" %>
 <head>
 	<title>Incident #676</title>
 	<link rel="stylesheet" type="text/css" href="oslc-tools.css" />
@@ -23,9 +24,9 @@
     <!-- ======================================================================
 	Dojo framework includes and requires
 	-->
-	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/resources/dojo.css">
-	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dijit/themes/tundra/tundra.css">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/resources/dojo.css">
+	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dijit/themes/tundra/tundra.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
 	<script type="text/javascript">
 		dojo.require("dojo.parser");
 	    dojo.require("dijit.Dialog");	
@@ -179,7 +180,8 @@ function showPreview(elem) { // (1)
    var previewURI = elem.getAttribute("href"); // (2) 
    if (!previewURI) return;
    dojo.xhrGet({  // (3) 
-      url: "http://"+hostname+":8181/ninacrm/proxy?uri=" + previewURI,
+      <%--url: "<%= DataLoader.NINACRM_BASE %>/proxy?uri=" + previewURI,--%>
+      url: previewURI,
       handleAs:"xml",
       headers: {
          "Accept": "application/x-oslc-compact+xml", // (4) 
@@ -250,9 +252,9 @@ function firstChildNamed(e, nodeName) { // (4)
 Code for OSLC Delegated UI 
 */
 
-var createDialogURL = "http://" + hostname + ":8080/OSLC4JBugzilla/services/1/changeRequests/creator";
-var selectDialogURL = "http:////" + hostname + ":8080/OSLC4JBugzilla/services/1/changeRequests/selector";
-var returnURL       = "http:////" + hostname + ":8181/ninacrm/blank.html";
+var createDialogURL = "<%= DataLoader.BUGZILLA_BASE %>/services/serviceProviders/1/bugzillaChangeRequests/creator";
+var selectDialogURL = "<%= DataLoader.BUGZILLA_BASE %>/services/serviceProviders/1/bugzillaChangeRequests/selector";
+var returnURL = "<%= DataLoader.NINACRM_BASE %>/blank.html";
 
 function selectDefect() {
 	postMessageProtocol(selectDialogURL);
@@ -317,7 +319,7 @@ function handleMessage(message) {
 	
 function addLink(linkname, linkurl) {
     dojo.xhrPost( {  
-        url: "http://"+hostname+":8181/ninacrm/data",
+        url: "<%= DataLoader.NINACRM_BASE %>/data",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         postData: "linkname=" + linkname + "&linkurl=" + linkurl,
         load: function(data) {

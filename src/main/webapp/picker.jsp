@@ -29,7 +29,7 @@
 <span id="status"></span>
 
 <script type="text/javascript">
-	var pickerURL = "http://localhost:8080/OSLC4JBugzilla/services/1/selector";
+	var pickerURL = "http://localhost:8080/BugzillaAdaptor/services/1/selector";
 	var returnURL = "http://localhost:8181/ninacrm/picked.jsp";
     var frame = document.createElement('iframe');
     
