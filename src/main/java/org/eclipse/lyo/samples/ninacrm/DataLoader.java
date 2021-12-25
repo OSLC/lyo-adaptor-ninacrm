@@ -30,10 +30,15 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Loads sample data for Nina CRM
  */
 public class DataLoader implements Filter {
+	
+	private final static Logger log = LoggerFactory.getLogger(DataLoader.class);
 
 //    public static final String NINACRM_BASE  = "https://aide.md.kth.se/ninacrm";
 //    public static final String BUGZILLA_BASE = "https://aide.md.kth.se/bugz";
@@ -61,8 +66,8 @@ public class DataLoader implements Filter {
             data.put(new URL(CM_ADAPTOR_BASE + "/services/1/changeRequests/1"), "Bug #1");
             data.put(new URL(CM_ADAPTOR_BASE + "/services/1/changeRequests/2"), "Bug #2");
             data.put(new URL(CM_ADAPTOR_BASE + "/services/1/changeRequests/8"), "Bug #8");
-        } catch (MalformedURLException ignored) {
-            ignored.printStackTrace();
+        } catch (MalformedURLException e) {
+            log.error("URL is malformed: {}", e);
         }
         context.setAttribute("data", data);
     }
