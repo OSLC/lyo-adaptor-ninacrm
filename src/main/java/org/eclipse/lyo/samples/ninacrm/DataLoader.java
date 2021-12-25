@@ -39,7 +39,12 @@ public class DataLoader implements Filter {
 //    public static final String BUGZILLA_BASE = "https://aide.md.kth.se/bugz";
 
     public static final String NINACRM_BASE  = "http://localhost:8181/ninacrm";
-    public static final String BUGZILLA_BASE = "http://localhost:8080/BugzillaAdaptor";
+//    public static final String CM_ADAPTOR_BASE = "http://localhost:8180/BugzillaAdaptor";
+//    public static final String CM_ADAPTOR_SDia = CM_ADAPTOR_BASE + "/services/serviceProviders/1/bugzillaChangeRequests/selector";
+//    public static final String CM_ADAPTOR_CDia = CM_ADAPTOR_BASE + "/services/serviceProviders/1/bugzillaChangeRequests/creator";
+    public static final String CM_ADAPTOR_BASE = "http://localhost:8801";
+    public static final String CM_ADAPTOR_SDia = CM_ADAPTOR_BASE + "/services/resources/select_change_request";
+    public static final String CM_ADAPTOR_CDia = CM_ADAPTOR_BASE + "/services/resources/create_defect";
 
     ServletContext context = null;
 
@@ -53,9 +58,9 @@ public class DataLoader implements Filter {
         context = filterConfig.getServletContext();
         Map<URL, String> data = new HashMap<URL, String>();
         try {
-            data.put(new URL(BUGZILLA_BASE + "/services/1/changeRequests/1"), "Bug #1");
-            data.put(new URL(BUGZILLA_BASE + "/services/1/changeRequests/2"), "Bug #2");
-            data.put(new URL(BUGZILLA_BASE + "/services/1/changeRequests/8"), "Bug #8");
+            data.put(new URL(CM_ADAPTOR_BASE + "/services/1/changeRequests/1"), "Bug #1");
+            data.put(new URL(CM_ADAPTOR_BASE + "/services/1/changeRequests/2"), "Bug #2");
+            data.put(new URL(CM_ADAPTOR_BASE + "/services/1/changeRequests/8"), "Bug #8");
         } catch (MalformedURLException ignored) {
             ignored.printStackTrace();
         }

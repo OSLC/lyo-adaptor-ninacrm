@@ -39,7 +39,7 @@ public class NewDefect {
 	       "test Java post 1 2 3 4 5 6", "1.0",  "Datastore", "PC", "Windows");    
 	    try {
 	       URL createURL = new URL( // (2)
-									DataLoader.BUGZILLA_BASE + "/services/serviceProviders/1/bugzillaChangeRequests");
+									DataLoader.CM_ADAPTOR_BASE + "/services/serviceProviders/1/bugzillaChangeRequests");
 	       HttpURLConnection conn = (HttpURLConnection)createURL.openConnection();
 	       conn.setRequestMethod("POST"); // (3) 
 	       conn.setDoOutput(true);

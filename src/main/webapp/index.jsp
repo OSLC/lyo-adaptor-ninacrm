@@ -24,9 +24,9 @@
     <!-- ======================================================================
 	Dojo framework includes and requires
 	-->
-	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/resources/dojo.css">
-	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dijit/themes/tundra/tundra.css">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/resources/dojo.css">
+	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dijit/themes/tundra/tundra.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
 	<script type="text/javascript">
 		dojo.require("dojo.parser");
 	    dojo.require("dijit.Dialog");	
@@ -185,7 +185,8 @@ function showPreview(elem) { // (1)
       handleAs:"xml",
       headers: {
          "Accept": "application/x-oslc-compact+xml", // (4) 
-      }, 
+      },
+      withCredentials: true,
       load: function(data) {
          try {
             var previewData = parsePreview(data); // (5) 
@@ -252,8 +253,8 @@ function firstChildNamed(e, nodeName) { // (4)
 Code for OSLC Delegated UI 
 */
 
-var createDialogURL = "<%= DataLoader.BUGZILLA_BASE %>/services/serviceProviders/1/bugzillaChangeRequests/creator";
-var selectDialogURL = "<%= DataLoader.BUGZILLA_BASE %>/services/serviceProviders/1/bugzillaChangeRequests/selector";
+var createDialogURL = "<%= DataLoader.CM_ADAPTOR_CDia %>";
+var selectDialogURL = "<%= DataLoader.CM_ADAPTOR_SDia %>";
 var returnURL = "<%= DataLoader.NINACRM_BASE %>/blank.html";
 
 function selectDefect() {
