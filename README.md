@@ -15,3 +15,7 @@ mvn clean jetty:run
 ```
 
 Open http://localhost:8181/ninacrm/
+
+To use the "Create Defect..." or "Select Defect..." links, the OSLC RefImpl CM server shall be running (see [docs](https://github.com/oslc-op/refimpl#using-jetty-based-containers-with-docker)).
+
+The "Add Link" link button works correctly only with the servers that have CSP and CORS set up.
