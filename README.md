@@ -6,6 +6,10 @@
 
 > This repository supersedes the 'ninacrm' folder in `lyo.docs` (https://github.com/eclipse/lyo.docs/tree/master/ninacrm)
 
+## Overview
+
+NinaCRM is a fictional CRM application that does not belong to OSLC AM/CM/RM/QM domains. Instead, it represents an example of how OSLC AM/CM/RM/QM apps (adaptors) can be used by (integrated with) non-OSLC AM/CM/RM/QM systems.
+
 ## Getting started
 
 Run
