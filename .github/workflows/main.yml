@@ -44,20 +44,6 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
-      #     registry-url: https://registry.npmjs.org/
-      # - name: Install newman
-      #   run: npm install -g newman 
       - name: 'Maven build'
         run: |
           mvn -B clean verify --file ./pom.xml
-      # - uses: isbang/compose-action@v1.4.1
-      #   with:
-      #     compose-file: "./adaptor-bugzilla/docker-compose.yml"
-      # - name: Run Postman tests
-      #   run: |
-      #     sleep 30
-      #     newman run ./test/Bugzilla.postman_collection.json
