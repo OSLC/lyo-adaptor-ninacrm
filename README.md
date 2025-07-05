@@ -56,7 +56,7 @@ Pre-built Docker images are available from GitHub Container Registry for both x8
 docker run -p 127.0.0.1:8181:8181 ghcr.io/oslc/lyo-adaptor-ninacrm:latest
 
 # Run a specific version
-docker run -p 127.0.0.1:8181:8181 ghcr.io/oslc/lyo-adaptor-ninacrm:1.0.0
+docker run -p 127.0.0.1:8181:8181 ghcr.io/oslc/lyo-adaptor-ninacrm:0.1.0
 ```
 
 > **Note:** Images are automatically rebuilt weekly to ensure the latest security updates from base images.
