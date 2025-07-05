@@ -1,0 +1,32 @@
+services:
+  ninacrm:
+    build: .
+    ports:
+      - "127.0.0.1:8181:8181"
+    environment:
+      - JAVA_OPTS=-Xmx512m
+      - JAVA_OPTIONS=-Djetty.http.port=8181
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: OSLC RefImpl CM server for testing "Create Defect" and "Select Defect" features
+  # Uncomment the section below if you want to run it alongside NinaCRM
+  #
+  # oslc-refimpl:
+  #   image: ghcr.io/oslc-op/refimpl:latest
+  #   ports:
+  #     - "8800:8080"
+  #   environment:
+  #     - JAVA_OPTS=-Xmx1g
+  #   restart: unless-stopped
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8080/services/rootservices"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+  #     start_period: 60s
