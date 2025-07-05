@@ -15,7 +15,7 @@ RUN mvn dependency:go-offline
 COPY src ./src
 
 # Build a release artifact.
-RUN mvn package -DskipTests
+RUN mvn package -DskipTests -B
 
 FROM jetty:9-jre17-eclipse-temurin
 
