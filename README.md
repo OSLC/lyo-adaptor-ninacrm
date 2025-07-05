@@ -33,10 +33,10 @@ docker-compose up --build
 
 # Or build and run manually
 docker build -t ninacrm .
-docker run -p 8080:8080 ninacrm
+docker run -p 8181:8181 ninacrm
 ```
 
-The application will be available at http://localhost:8080/
+The application will be available at http://localhost:8181/
 
 To stop the application:
 ```bash
@@ -53,10 +53,10 @@ Pre-built Docker images are available from GitHub Container Registry for both x8
 
 ```bash
 # Run the latest version
-docker run -p 8080:8080 ghcr.io/oslc/lyo-adaptor-ninacrm:latest
+docker run -p 127.0.0.1:8181:8181 ghcr.io/oslc/lyo-adaptor-ninacrm:latest
 
 # Run a specific version
-docker run -p 8080:8080 ghcr.io/oslc/lyo-adaptor-ninacrm:1.0.0
+docker run -p 127.0.0.1:8181:8181 ghcr.io/oslc/lyo-adaptor-ninacrm:1.0.0
 ```
 
 > **Note:** Images are automatically rebuilt weekly to ensure the latest security updates from base images.
@@ -70,7 +70,7 @@ To use the "Create Defect..." or "Select Defect..." links, you'll need the OSLC 
 **Option 1: Enable in docker-compose (easiest)**
 1. Edit `docker-compose.yml` and uncomment the `oslc-refimpl` service section
 2. Run: `docker-compose up --build`
-3. NinaCRM will be available at http://localhost:8080/
+3. NinaCRM will be available at http://localhost:8181/
 4. OSLC RefImpl will be available at http://localhost:8800/
 5. Use `http://localhost:8800/services/rootservices` as the root services URI in NinaCRM
 
