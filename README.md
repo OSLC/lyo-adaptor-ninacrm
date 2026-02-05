@@ -5,7 +5,7 @@
 [![Docker](https://github.com/OSLC/lyo-adaptor-ninacrm/actions/workflows/docker.yml/badge.svg)](https://github.com/OSLC/lyo-adaptor-ninacrm/actions/workflows/docker.yml)
 [![Discourse users](https://img.shields.io/discourse/users?color=28bd84&server=https%3A%2F%2Fforum.open-services.net%2F)](https://forum.open-services.net/)
 
-> **This repository has been superseed by a https://oslc.github.io/oslc-selection-utils/ that provide an easy-to-use WebComponent to pick an OSLC resource link from another OSLC server.**
+> **This repository has been superseeded by a https://oslc.github.io/oslc-selection-utils/ that provide an easy-to-use WebComponent to pick an OSLC resource link from another OSLC server.**
 
 > This repository supersedes the 'ninacrm' folder in `lyo.docs` (https://github.com/eclipse/lyo.docs/tree/master/ninacrm)
 
