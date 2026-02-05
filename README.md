@@ -1,11 +1,6 @@
 # lyo-adaptor-ninacrm
 
-[![](https://img.shields.io/badge/project-Eclipse%20Lyo-blue?color=418eeb)](https://github.com/eclipse/lyo)
-[![CI](https://github.com/OSLC/lyo-adaptor-ninacrm/actions/workflows/main.yml/badge.svg)](https://github.com/OSLC/lyo-adaptor-ninacrm/actions/workflows/main.yml)
-[![Docker](https://github.com/OSLC/lyo-adaptor-ninacrm/actions/workflows/docker.yml/badge.svg)](https://github.com/OSLC/lyo-adaptor-ninacrm/actions/workflows/docker.yml)
-[![Discourse users](https://img.shields.io/discourse/users?color=28bd84&server=https%3A%2F%2Fforum.open-services.net%2F)](https://forum.open-services.net/)
-
-> **This repository has been superseeded by a https://oslc.github.io/oslc-selection-utils/ that provide an easy-to-use WebComponent to pick an OSLC resource link from another OSLC server.**
+> <h1>This repository has been superseeded by a https://oslc.github.io/oslc-selection-utils/ that provides an easy-to-use WebComponent to pick an OSLC resource link from another OSLC server.</h1>
 
 > This repository supersedes the 'ninacrm' folder in `lyo.docs` (https://github.com/eclipse/lyo.docs/tree/master/ninacrm)
 
